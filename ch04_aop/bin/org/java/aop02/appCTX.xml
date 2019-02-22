@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 핵심코드 -->
+	<bean id="baby" class="org.java.aop02.Baby"/>
+	<bean id="papa" class="org.java.aop02.Papa"/>
+	<bean id="mom" class="org.java.aop02.Mom"/>
+	
+	<!-- 공통클래스 -->
+	<bean id="pbaby" class="org.java.aop02.PersonAspect">
+		<constructor-arg ref="baby"></constructor-arg>
+	</bean>
+	
+	<bean id="pmom" class="org.java.aop02.PersonAspect">
+		<constructor-arg ref="mom"></constructor-arg>
+	</bean>
+	
+	<bean id="ppapa" class="org.java.aop02.PersonAspect">
+		<constructor-arg ref="papa"></constructor-arg>
+	</bean>
+	
+
+</beans>

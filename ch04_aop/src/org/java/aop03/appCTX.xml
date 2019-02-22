@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+	<!-- 핵심코드 -->
+		<bean id="baby" class="org.java.aop03.Baby"/>
+	<bean id="papa" class="org.java.aop03.Papa"/>
+	<bean id="mom" class="org.java.aop03.Mom"/>
+	
+	<!-- 공통클래스 -->
+	<bean id="personAspect" class="org.java.aop03.PersonAspect"/>
+	
+	<!-- AOP -->
+	<aop:config>
+		<!-- 공통클래스 -->
+		<aop:aspect ref="personAspect">
+			<!-- 핵심코드 적용범위 -->
+			<aop:pointcut expression="within(org.java.aop03.*)" id="publicMethod"/>
+			<!-- 공통함수를(advice)를 핵심함수(pointcut) 전에 실행 -->
+			<aop:before method="awake" pointcut-ref="publicMethod"/>
+		</aop:aspect>
+	</aop:config>
+</beans>

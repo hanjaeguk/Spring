@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="aa" class="org.java.di05.AA">
+		<property name="name" value="홍길동" />
+		<property name="list">
+			<list>
+				<value>10</value>
+				<value>20</value>
+				<value>30</value>
+			</list>
+		</property>
+		<property name="map">
+			<map>
+				<entry>
+					<key>
+						<value>akey</value>
+					</key>
+					<value>Hi</value>
+				</entry>
+
+				<entry>
+					<key>
+						<value>bkey</value>
+					</key>
+					<value>How are you?!</value>
+				</entry>
+			</map>
+		</property>
+
+		<property name="set">
+			<set>
+				<value>77</value>
+				<value>88</value>
+				<value>99</value>
+			</set>
+		</property>
+
+		<property name="properties">
+			<props>
+				<prop key="server">1234.55.66.77</prop>
+				<prop key="connection">5000</prop>
+			</props>
+		</property>
+
+	</bean>
+
+</beans>

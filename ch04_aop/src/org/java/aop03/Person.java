@@ -1,0 +1,6 @@
+package org.java.aop03;
+
+public interface Person {
+	public void work();
+
+}

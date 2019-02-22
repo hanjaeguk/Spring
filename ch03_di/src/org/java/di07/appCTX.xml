@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="hong" class="org.java.di07.Student">
+		<constructor-arg value="홍길동"/>
+		<constructor-arg value="10살"/>
+		<constructor-arg value="3학년"/>
+		<constructor-arg value="2반"/>
+	</bean>
+	
+	<bean id="cho" class="org.java.di07.Student">
+		<constructor-arg value="조인성"/>
+		<constructor-arg value="12살"/>
+		<constructor-arg value="5학년"/>
+		<constructor-arg value="6반"/>
+	</bean>
+	
+	<!-- property는 순서 바꿔도 된다. -->
+	<bean id="kim" class="org.java.di07.Student">
+		<property name="name" value="김태희"/>
+		<property name="age" value="13살"/>
+		<property name="gradeName" value="6학년"/>
+		<property name="className" value="1반"/>
+	</bean>
+	
+	<bean id="studentInfo" class="org.java.di07.StudentInfo">
+		<constructor-arg>
+			<map>
+				<entry>
+					<key>
+						<value>akey</value>
+					</key>
+					<ref bean="hong"/>
+				</entry>
+				<entry>
+					<key>
+						<value>bkey</value>
+					</key>
+					<ref bean="cho"/>
+				</entry>
+				<entry>
+					<key>
+						<value>ckey</value>
+					</key>
+					<ref bean="kim"/>
+				</entry>
+			</map>
+			
+		</constructor-arg>
+	</bean>
+		
+</beans>

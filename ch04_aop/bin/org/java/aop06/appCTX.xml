@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+	<!-- 핵심코드 -->
+	<bean id="student" class="org.java.aop06.Student"/>
+	<bean id="teacher" class="org.java.aop06.Teacher"/>
+	
+	<!-- 공통코드 -->
+	<bean id="aspect" class="org.java.aop06.PAspect"/>
+	
+	<!-- AOP -->
+	<aop:config>
+		<aop:aspect ref="aspect">
+			<aop:pointcut expression="within(org.java.aop06.*)" id="publicMethod"/>
+			
+			<aop:before method="before" pointcut-ref="publicMethod"/>
+			<aop:after-returning method="afterReturning" pointcut-ref="publicMethod"/>
+			<aop:after-throwing method="afterThrowing" pointcut-ref="publicMethod"/>
+			<aop:after method="after" pointcut-ref="publicMethod"/>
+		</aop:aspect>
+	</aop:config>
+
+</beans>

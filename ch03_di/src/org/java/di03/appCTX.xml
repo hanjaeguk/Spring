@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 생성자  -->
+	<bean id="aa" class="org.java.di03.AA">
+		<constructor-arg>
+			<value>10</value>
+		</constructor-arg>
+		<constructor-arg value="20"/>
+	</bean>
+	
+	<!-- setter -->
+	<bean id="bb" class="org.java.di03.BB">
+		<property name="a" value="77"/>
+		<property name="b" value="88"/>
+	</bean>
+	
+	<!-- 객체 넘기기 -->
+	<bean id="cc" class="org.java.di03.CC">
+		<!-- 생성자  -->
+		<constructor-arg ref="aa"/>
+		<!-- setter -->
+		<property name="bb" ref="bb"/>
+	</bean>
+	
+
+</beans>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+	
+	<!-- 핵심 -->
+	<bean id="student" class="org.java.aop05.Student"/>
+	<bean id="teacher" class="org.java.aop05.Teacher"/>
+	
+	<!-- 공통 -->
+	<bean id="paspect" class="org.java.aop05.PAspect"/>
+	
+	<!-- AOP -->
+	<aop:config>
+		<aop:aspect ref="paspect">
+			<!-- 
+			<aop:pointcut expression="within(org.java.aop05.*)" id="publicMethod"/>
+			 -->
+			<aop:pointcut expression="within(org.java.aop05.Student)" id="publicMethod"/>			
+			<aop:pointcut expression="within(org.java.aop05.Teacher)" id="publicMethod"/>			
+			<aop:before method="open" pointcut-ref="publicMethod"/>
+			<aop:after method="close" pointcut-ref="publicMethod"/>
+			
+		</aop:aspect>
+	</aop:config>
+
+	<!--Advice 종류
+		- aop:before : 핵심함수 전에 Advice 실행
+		- aop:after : 핵심함수 후에 Advice 실행
+		- aop:after-returning : 정상종류 후 advice 실행
+		- aop:after-throwing : 예외발생 Advice 실행
+		
+		- aop:around : 메서드 실행 전/후 및 예외발생시 Advice 실행	
+	 -->
+</beans>

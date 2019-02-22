@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 클래스 객체 만들어서 -->
+	<bean id="student" class="org.java.di04.Student">
+		<constructor-arg value="홍길동"/>
+		<constructor-arg value="10살"/>
+		<constructor-arg value="3학년"/>
+		<constructor-arg value="2반"/>
+	</bean>
+	
+	<!-- 만든 객체 던지기!! -->
+	<bean id="studentInfo" class="org.java.di04.StudentInfo">
+		<constructor-arg ref="student"/>
+	</bean>
+
+</beans>

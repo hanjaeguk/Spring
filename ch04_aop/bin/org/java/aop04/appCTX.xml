@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+	<!-- 핵심코드 -->
+	<bean id="baby" class="org.java.aop04.Baby"/>
+	<bean id="papa" class="org.java.aop04.Papa"/>
+	<bean id="mom" class="org.java.aop04.Mom"/>
+	
+	<!-- 공통클래스 -->
+	<bean id="pAspect" class="org.java.aop04.PAspect"/>
+	
+	<!-- AOP -->
+	<aop:config>
+		<aop:aspect ref="pAspect">
+			<aop:pointcut expression="within(org.java.aop04.*)" id="publicMethod"/>
+			<aop:before method="awake" pointcut-ref="publicMethod"/>
+			<aop:after method="sleep" pointcut-ref="publicMethod"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
