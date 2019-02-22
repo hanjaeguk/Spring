@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.java.dao.daoMapper">
+	<insert id= "friendInsert" parameterType="org.java.dto.FriendDto">
+		insert into friend values(friend_num_seq.nextval, #{name}, #{phone})
+	</insert>
+	
+	<select id="friendSelect" parameterType="int" resultType="org.java.dto.FriendDto">
+		select * from friend where num = #{num}
+	</select>
+	
+	<select id="friendList" resultType="org.java.dto.FriendDto">
+		select * from friend
+	</select>
+	
+	<delete id="friendDelete" parameterType="int">
+		delete from friend where num=#{num}
+	</delete>
+	
+	<!-- DTO로 하는거
+	<update id="friendUpdate" parameterType="org.java.dto.FriendDto">
+		update friend set phone=#{phone} where num=#{num}
+	</update>
+	 -->
+	 
+	<!-- MAP로 하는거 -->
+	<update id="friendUpdate" parameterType="java.util.HashMap">
+		update friend set phone=#{phone} where num=#{num}
+	</update>
+	
+	
+</mapper>
