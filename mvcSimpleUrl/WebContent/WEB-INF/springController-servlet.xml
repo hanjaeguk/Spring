@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- HanderMapping 일괄처리 -->
+  <bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+  	<property name="mappings">
+  		<props>
+  			<prop key="*.do">helloController</prop>
+  			<prop key="/aa/bb/cc/*.do">helloController</prop>
+  		</props>
+  	</property>
+  </bean>
+  
+  <bean id="propertiesResolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+  	<property name="mappings">
+  		<props>
+  			<prop key="/hello.do">hello</prop>
+  			<prop key="/aa/bb/cc/apple.do">apple</prop>
+  		</props>
+  	</property>
+  </bean>
+
+<!-- Controller -->
+	<bean id="helloController" class="com.java.controller.HelloController">
+		<constructor-arg ref="helloService"/>
+		<property name="methodNameResolver" ref="propertiesResolver"/>
+	</bean>
+
+<!-- Service -->
+	<bean id="helloService" class="com.java.service.HelloServiceImpl">
+		<constructor-arg ref="helloDao"/>
+	</bean>
+
+<!-- DAO -->
+	<bean id="helloDao" class="com.java.dao.HelloDaoImpl">
+		<constructor-arg ref="helloDto"/>
+		<!-- Mybatis -->
+	</bean>
+	
+<!-- DTO -->
+	<bean id="helloDto" class="com.java.dto.HelloDto"/>
+
+<!-- Mybatis -->
+
+
+
+
+</beans>
