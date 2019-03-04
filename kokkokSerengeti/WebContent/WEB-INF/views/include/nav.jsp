@@ -30,7 +30,7 @@
 			
 
 		  <li class="nav-item cta" style="cursor: pointer"><a class="nav-link" data-toggle="modal" data-target="#myLoginModal"><span>로그인</span></a></li>&nbsp;&nbsp;
-          <li class="nav-item cta"><a href="${root}/member?act=mvregister&bcode=0&pg=1&key=&word=" class="nav-link"><span>회원가입</span></a></li>
+          <li class="nav-item cta"><a href="${root}/member/mvRegister.kok" class="nav-link"><span>회원가입</span></a></li>
 
 
 

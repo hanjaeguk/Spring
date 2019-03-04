@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kokkok.member.dto.MemberDto;
 import com.kokkok.member.service.MemberService;
 
 
@@ -18,13 +19,29 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@RequestMapping(value="/schedule/list.kok",method=RequestMethod.GET)
-	public ModelAndView scheduleList(HttpServletRequest request, HttpServletResponse response) {
-		
+	@RequestMapping(value="/member/mvRegister.kok",method=RequestMethod.GET)
+	public ModelAndView mvRegister(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request",request);
-		memberService.myInfo(mav);
-		
+		memberService.mvRegister(mav);
 		return mav;
 	}
+	
+	@RequestMapping(value="/member/register.kok",method=RequestMethod.POST)
+	public ModelAndView register(HttpServletRequest request, HttpServletResponse response, MemberDto memberDto) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("memberDto", memberDto);
+		memberService.registerOk(mav);
+		return mav;
+	}
+	
+	@RequestMapping(value="/member/IdCheck.kok",method=RequestMethod.GET)
+	public ModelAndView idCheck(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request",request);
+		memberService.idCheck(mav);
+		return mav;
+	}
+
 }

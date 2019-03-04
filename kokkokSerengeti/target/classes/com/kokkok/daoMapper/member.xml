@@ -2,8 +2,21 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kokkok.daoMapper">
-
-
+<mapper namespace="dao.memberMapper">
+	<resultMap type="com.kokkok.member.dto.MemberDto" id="memberDto">
+		<result property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="pass" column="pass"/>
+		<result property="joinDate" column="joindate"/>
+		<result property="adminCode" column="admincode"/>
+	</resultMap> 
+	
+	<insert id="insertMember" parameterType="com.kokkok.member.dto.MemberDto">
+			insert into member(id,name,email,pass,joindate,admincode)
+			                    
+			values(#{id}, #{name}, #{email}, #{pass}, sysdate, 0) 
+		                                      
+    </insert>
 
 </mapper>
