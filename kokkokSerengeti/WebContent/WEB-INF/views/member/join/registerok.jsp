@@ -6,7 +6,6 @@
 <title>Insert title here</title>
 <%@ include file="/WEB-INF/views/include/link.jsp"%>
 <%@ include file="/WEB-INF/views/include/loader.jsp"%>
-
 </head>
 <style>
 .ftco-navbar-light {
@@ -33,7 +32,7 @@
 							</span>
 							<br>
 								<span class="label-input100">
-								님 반갑습니다.<br>로그인후 이용해주세요.
+								${memberDto.username}님 반갑습니다.<br>로그인후 이용해주세요.
 								</span>
 							<br><br><br>
 							<div class="d-flex justify-content-center mb-3">
@@ -59,7 +58,3 @@
 </body>
 </html>
 
-<script>
-alert("잘못된 URL접근입니다.")
-location.href = "${root}/index.jsp"
-</script>

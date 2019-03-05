@@ -27,10 +27,9 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/member/register.kok",method=RequestMethod.POST)
+	@RequestMapping(value="/member/registerOk.kok",method=RequestMethod.POST)
 	public ModelAndView register(HttpServletRequest request, HttpServletResponse response, MemberDto memberDto) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("request",request);
 		mav.addObject("memberDto", memberDto);
 		memberService.registerOk(mav);
 		return mav;
@@ -41,6 +40,46 @@ public class MemberController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request",request);
 		memberService.idCheck(mav);
+		return mav;
+	}
+	
+	@RequestMapping(value="/member/myInfo.kok",method=RequestMethod.GET)
+	public ModelAndView myInfo(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request",request);
+		memberService.myInfo(mav);
+		return mav;
+	}
+	
+	@RequestMapping(value="/member/mylist.kok",method=RequestMethod.GET)
+	public ModelAndView mylist(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request",request);
+		memberService.myWriteSchedule(mav);
+		return mav;
+	}
+	
+	@RequestMapping(value="/member/mywishschedule.kok",method=RequestMethod.GET)
+	public ModelAndView myschedulewish(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request",request);
+		memberService.myWishSchedule(mav);
+		return mav;
+	}
+	
+	@RequestMapping(value="/member/mywishreview.kok",method=RequestMethod.GET)
+	public ModelAndView myreviewwish(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request",request);
+		memberService.myWishreview(mav);
+		return mav;
+	}
+	
+	@RequestMapping(value="/member/login.kok",method=RequestMethod.POST)
+	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		memberService.login(mav);
 		return mav;
 	}
 

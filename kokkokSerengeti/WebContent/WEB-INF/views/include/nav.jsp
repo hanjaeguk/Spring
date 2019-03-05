@@ -24,7 +24,7 @@
           <!-- <li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>  -->         
 		  <li class="nav-item"><a class="nav-link" href="${root}/information/list.kok">여행 정보<span class="caret"></span></a>	      
           <li class="nav-item"><a class="nav-link" href="${root}/schedule/list.kok">여행 일정<span class="caret"></span></a>	      
-		  <li class="nav-item"><a class="nav-link" href="${root}/board?act=list&bcode=0&pg=1&key=&word=">여행 리뷰<span class="caret"></span></a>	      
+		  <li class="nav-item"><a class="nav-link" href="${root}/review/list.kok">여행 리뷰<span class="caret"></span></a>	      
 		  <li class="nav-item"><a class="nav-link" href="${root}/board?act=listtips&bcode=0&pg=1&key=&word=">여행 꿀팁<span class="caret"></span></a>	  
 		  			<!-- 로그인 모달 추가! -->
 			
@@ -38,12 +38,12 @@
           <li class="nav-item cta dropdown">
           	<a href="" class="dropdown-toggle nav-link" data-toggle="dropdown"><span>마이페이지</span></a>
    		        <ul class="dropdown-menu">
-		          <li><a href="${root}/member?act=mvmyinfo&bcode=0&pg=1&key=&word=" class="dropdown-item">내 정보 확인</a></li>
-		          <li><a href="${root}/member?act=mvwritelist&bcode=0&pg=1&key=&word=" class="dropdown-item">내가 작성한 일정</a></li>
-		          <li><a href="${root}/member?act=mvwishlist&bcode=0&pg=1&key=&word=" class="dropdown-item">내가 찜한 목록</a></li>
+				<li><a href="${root}/member/myInfo.kok" class="dropdown-item">내 정보관리</a></li>
+				<li><a href="${root}/member/mylist.kok" class="dropdown-item">내가 작성한 일정</a></li>
+				<li><a href="${root}/member/mywishschedule.kok" class="dropdown-item">내가 찜한 일정</a></li>
+				<li><a href="${root}/member/mywishreview.kok" class="dropdown-item">내가 찜한 리뷰</a></li>
 
-
-			          <li><a href="${root}/members?act=mvmemberslist&bcode=0&pg=1&key=&word=" class="dropdown-item">회원관리</a></li>              
+			     <li><a href="${root}/members?act=mvmemberslist&bcode=0&pg=1&key=&word=" class="dropdown-item">회원관리</a></li>              
 
 	       
 		        </ul>

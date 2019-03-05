@@ -35,7 +35,7 @@
 			return;
 		} else {
 			document.getElementById("registerform").setAttribute("action",
-					"${root}/member/register.kok");
+					"${root}/member/registerOk.kok");
 			document.getElementById("registerform").submit();
 		}
 	}

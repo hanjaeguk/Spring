@@ -44,7 +44,7 @@
 			return;
 		} else {
 			document.getElementById("loginform").setAttribute("action",
-					"${root}/member");
+					"${root}/member/login.kok");
 			document.getElementById("loginform").submit();
 		}
 	}

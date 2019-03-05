@@ -1,5 +1,6 @@
 package com.kokkok.member.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ import com.kokkok.member.dto.MemberDto;
 @Component
 public class MemberDaoImpl implements MemberDao {
 	@Autowired
- 	private SqlSessionTemplate sqlSession;
+ 	private SqlSessionTemplate sqlSessionTemplate;
 
 	@Override
 	public int idCheck(String id) {
@@ -21,9 +22,8 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public int register(MemberDto memberDto) {
-		// TODO Auto-generated method stub
-		return sqlSession.insert("dao.memberMapper.insertMember", memberDto);
+	public int memberInsert(MemberDto memberDto) {
+		return sqlSessionTemplate.insert("memberInsert", memberDto);
 	}
 
 	@Override
@@ -45,9 +45,12 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public MemberDto login(Map<String, String> map) {
-		// TODO Auto-generated method stub
-		return null;
+	public int login(String id, String pass) {
+		Map<String, Object> hMap=new HashMap<String, Object>();
+		hMap.put("id", id);
+		hMap.put("pass", pass);
+		
+		return sqlSessionTemplate.selectOne("login",hMap);
 	}
 
 	@Override

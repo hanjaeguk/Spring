@@ -6,9 +6,10 @@ import java.util.Map;
 import com.kokkok.member.dto.MemberDto;
 
 public interface MemberDao {
-	int idCheck(String id);
+	public int idCheck(String id);
 	
-	int register(MemberDto memberDto);
+	public int memberInsert(MemberDto memberDto);
+	public int login(String id, String pass);
 	
 	MemberDto getMember(String id);
 	int modify(MemberDto memberDto); 
@@ -16,7 +17,6 @@ public interface MemberDao {
 	
 	
 	// MemberDto login(String id,String pass); 
-	MemberDto login(Map<String,String> map); 
 	
 	List<MemberDto> memberList(Map<String,String> map);
 }
