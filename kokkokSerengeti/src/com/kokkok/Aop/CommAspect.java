@@ -1,4 +1,4 @@
-package com.java.guestAop;
+package com.kokkok.Aop;
 
 import java.util.logging.Logger;
 
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class GuestAspect {
-	public static Logger logger = Logger.getLogger(GuestAspect.class.getName());
+public class CommAspect {
+	public static Logger logger = Logger.getLogger(CommAspect.class.getName());
 	
 	public static final String logMsg="LogMsg---------------";
 	

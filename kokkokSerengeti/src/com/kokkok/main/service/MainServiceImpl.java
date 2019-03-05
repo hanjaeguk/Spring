@@ -17,5 +17,4 @@ public class MainServiceImpl implements MainService{
 		mav.setViewName("/information/list");		
 	}
 
-	
 }

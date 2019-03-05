@@ -1,5 +1,7 @@
 package com.kokkok.tip.service;
 
-public interface TipService {
+import org.springframework.web.servlet.ModelAndView;
 
+public interface TipService {
+	public void tipList(ModelAndView mav);
 }

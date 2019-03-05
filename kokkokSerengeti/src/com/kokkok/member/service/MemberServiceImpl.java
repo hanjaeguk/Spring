@@ -10,8 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
-
-import com.java.guestAop.GuestAspect;
+import com.kokkok.Aop.CommAspect;
 import com.kokkok.member.dao.MemberDao;
 import com.kokkok.member.dto.MemberDto;
 
@@ -62,10 +61,10 @@ public class MemberServiceImpl implements MemberService{
 		Map<String, Object> map = mav.getModelMap();
 		MemberDto memberDto=(MemberDto) map.get("memberDto");
 		memberDto.setJoinDate(new Date());
-		GuestAspect.logger.info(GuestAspect.logMsg + memberDto.toString());
+		CommAspect.logger.info(CommAspect.logMsg + memberDto.toString());
 
 		int check=memberDao.memberInsert(memberDto);
-		GuestAspect.logger.info(GuestAspect.logMsg + check);
+		CommAspect.logger.info(CommAspect.logMsg + check);
 
 		mav.addObject("check",check);		
 		mav.setViewName("/member/join/registerok");		
@@ -89,7 +88,7 @@ public class MemberServiceImpl implements MemberService{
 		
 		int check =memberDao.login(id,pass);
 		
-		GuestAspect.logger.info(GuestAspect.logMsg + check);
+		CommAspect.logger.info(CommAspect.logMsg + check);
 		
 		mav.addObject("check", check);
 
