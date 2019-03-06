@@ -46,11 +46,8 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public int login(String id, String pass) {
-		Map<String, Object> hMap=new HashMap<String, Object>();
-		hMap.put("id", id);
-		hMap.put("pass", pass);
-		
-		return sqlSessionTemplate.selectOne("login",hMap);
+
+		return 0;
 	}
 
 	@Override

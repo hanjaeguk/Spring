@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kokkok.Aop.CommAspect;
 import com.kokkok.member.dao.MemberDao;
 import com.kokkok.member.dto.MemberDto;
 
@@ -61,10 +60,8 @@ public class MemberServiceImpl implements MemberService{
 		Map<String, Object> map = mav.getModelMap();
 		MemberDto memberDto=(MemberDto) map.get("memberDto");
 		memberDto.setJoinDate(new Date());
-		CommAspect.logger.info(CommAspect.logMsg + memberDto.toString());
 
 		int check=memberDao.memberInsert(memberDto);
-		CommAspect.logger.info(CommAspect.logMsg + check);
 
 		mav.addObject("check",check);		
 		mav.setViewName("/member/join/registerok");		
@@ -80,19 +77,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void login(ModelAndView mav) {
 
-		Map<String, Object> map=mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest) map.get("request");	
-		String id = request.getParameter("loginid");
-		String pass = request.getParameter("loginpass");
-		
-		
-		int check =memberDao.login(id,pass);
-		
-		CommAspect.logger.info(CommAspect.logMsg + check);
-		
-		mav.addObject("check", check);
 
-		mav.setViewName("member/login/");
 
 	}
 

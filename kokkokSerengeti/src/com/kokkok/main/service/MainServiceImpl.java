@@ -12,9 +12,4 @@ public class MainServiceImpl implements MainService{
 	@Autowired
 	private MainDao maindao;
 
-	@Override
-	public void infoList(ModelAndView mav) {
-		mav.setViewName("/information/list");		
-	}
-
 }
